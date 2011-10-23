@@ -18,7 +18,12 @@ for iter = 1:num_iters
     %
 
 
-
+%theta = [
+%          theta(1) - alpha * (sum((X*theta-y).*X(:,1)) / m);
+%          theta(2) - alpha * (sum((X*theta-y).*X(:,2)) / m);
+%        ];
+hypdiff = X*theta-y;
+theta = theta - (alpha * (sum([hypdiff hypdiff].*X) / m))';
 
 
 
